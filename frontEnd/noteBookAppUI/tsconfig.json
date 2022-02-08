@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es6",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/**.ts", "test/**/**.ts"],
+  "exclude": [ "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts",
+  ],
+}
+
+// {
+//   "extends": "./tsconfig.paths.json",
+//   "compilerOptions": {
+//     "allowJs": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "isolatedModules": true,
+//     "jsx": "react",
+//     "lib": [
+//       "es2015",
+//       "es2015.promise",
+//       "es2016.array.include",
+//       "dom"
+//     ],
+//     "strict": true,
+//     "moduleResolution": "node",
+//     "baseUrl": "./",
+//     "noEmit": true,
+//     "resolveJsonModule": true,
+//     "target": "esnext",
+//     "types": [
+//       "jest"
+//     ],
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "module": "esnext"
+//   },
+//   "include": [
+//     "src"
+//   ]
+// }

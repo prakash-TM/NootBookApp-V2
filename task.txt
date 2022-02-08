@@ -1,0 +1,6 @@
+Create API for 
+- Create Users
+- Create Notebook
+- Create Note with or without notebook
+- List Notebooks
+- List Notes
