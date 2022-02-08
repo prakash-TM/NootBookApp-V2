@@ -46,6 +46,7 @@ function Notebook() {
       userId: id,
     };
     const postReq = await PostReq(data, postApi);
+    setTitle("")
     // axios
     //   .post("http://ec2-13-127-246-39.ap-south-1.compute.amazonaws.com:8000/notebook", data)
     //   .then((res) => {
