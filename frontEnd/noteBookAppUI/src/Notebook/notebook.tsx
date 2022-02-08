@@ -1,5 +1,6 @@
 import "./notebook.css";
 import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
@@ -37,8 +38,10 @@ function Notebook() {
     _handleAllDataOutBtn();
   });
 
+
+  
   //Adding Info to DB
-  const _handlePost = async () => {
+  const _handlePost = async (e:any) => {
     const postApi = "notebook";
     const data = {
       title: title,
@@ -46,7 +49,9 @@ function Notebook() {
       userId: id,
     };
     const postReq = await PostReq(data, postApi);
-    setTitle("")
+    
+    
+
     // axios
     //   .post("http://ec2-13-127-246-39.ap-south-1.compute.amazonaws.com:8000/notebook", data)
     //   .then((res) => {
@@ -91,6 +96,7 @@ function Notebook() {
         <h2>Notebook App</h2>
       </div>
       <div>
+        <form onClick={_handlePost} >
         <ul className="unOrder-style">
           <h3>Add Data</h3>
           <li>
@@ -114,11 +120,15 @@ function Notebook() {
             />
           </li>
           <br />
+        
           <li>
-            <button onClick={_handlePost}>Submit</button>
+            <button type="submit">Submit</button>
+            {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
           </li>
         </ul>
+        </form>
       </div>
+      
       <br />
       <div className="singleData-flex">
         <div>
