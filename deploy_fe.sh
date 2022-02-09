@@ -13,7 +13,7 @@ npm run build
 echo "build completed"
 
 echo "pm2 started"
-pm2 start frontEnd/noteBookAppUI/index.js
+pm2 start frontEnd/noteBookAppUI/index.js -f
 echo "pm2 running"
 
 echo "pm2 saving"
