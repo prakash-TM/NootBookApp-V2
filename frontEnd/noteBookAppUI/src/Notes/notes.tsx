@@ -3,7 +3,7 @@ import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
 import DeleteSingleReq from "../requests/deleteSingle";
-
+import LinkIndex from "../DomLinks/LinkIndex"
 function Notes() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,15 +42,16 @@ function Notes() {
 
   return (
     <>
-      <div style={{backgroundColor:"aqua"}}>
-        <div style={{ textAlign: "center" }}>
+    <LinkIndex />
+      <div >
+        <div >
           <h3>--Display Area--</h3>
           <button onClick={_handleAllDataOutBtn}>Get All Out</button>
         </div>
 
-        <div className="posts-box">
+        <div >
           {posts.map((item: any, index: any) => (
-            <div style={{ listStyleType: "none" }} key={index}>
+            <div  key={index}>
               <li>
                 <h3>Title : {item.title}</h3>
               </li>
@@ -62,7 +63,7 @@ function Notes() {
                   {item.tags.map((item: any, index: any) => {
                     console.log({ item });
                     return (
-                      <div style={{ listStyleType: "none" }} key={index}>
+                      <div key={index}>
                         <li>Tag : {item.name}</li>
                       </div>
                     );

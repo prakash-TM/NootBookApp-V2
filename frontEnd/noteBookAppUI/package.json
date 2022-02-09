@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "serve": "pm2 vite preview"
+        "serve": "pm2 vite preview",
+        "watch": "sass --watch src/Notebook/notebook.scss src/Notebook/notebook.css"
     },
     "dependencies": {
         "axios": "^0.25.0",

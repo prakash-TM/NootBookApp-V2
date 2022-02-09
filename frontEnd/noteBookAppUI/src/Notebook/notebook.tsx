@@ -6,6 +6,7 @@ import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
 import DeleteSingleReq from "../requests/deleteSingle";
 import DeleteAllReq from "../requests/deleteAll";
+import LinkIndex from "../DomLinks/LinkIndex";
 
 function Notebook() {
   const [posts, setPosts] = useState([]);
@@ -38,10 +39,8 @@ function Notebook() {
     _handleAllDataOutBtn();
   });
 
-
-  
   //Adding Info to DB
-  const _handlePost = async (e:any) => {
+  const _handlePost = async (e: any) => {
     const postApi = "notebook";
     const data = {
       title: title,
@@ -49,8 +48,6 @@ function Notebook() {
       userId: id,
     };
     const postReq = await PostReq(data, postApi);
-    
-    
 
     // axios
     //   .post("http://ec2-13-127-246-39.ap-south-1.compute.amazonaws.com:8000/notebook", data)
@@ -90,125 +87,144 @@ function Notebook() {
     alert("records was deleted successfully & refresh the once");
   };
 
+  const [creatBar, setCreateBar] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
+  const [showBar, setShowBar] = useState(false);
+
+  const _createNotebookBar = () => {
+    setCreateBar(true);
+    setSearchBar(false);
+    setShowBar(false);
+  };
+  const _searchNotebookBar = () => {
+    setCreateBar(false);
+    setSearchBar(true);
+    setShowBar(false);
+  };
+
+  const _showNotebookBar = () => {
+    setCreateBar(false);
+    setSearchBar(false);
+    setShowBar(true);
+  };
+
   return (
-    <div className="bg-color">
-      <div className="header-sty">
-        <h2>Notebook App</h2>
+    <div className="main-container">
+      <div className="domLinkBar-style">
+        <LinkIndex />
       </div>
-      <div>
-        
-        <ul className="unOrder-style">
-          <h3>Add Data</h3>
-          <li>
-            <label htmlFor="title">Title </label>
-            <input
-              style={{ marginLeft: "51px" }}
-              type="text"
-              onChange={_handleTitleInp}
-            />
-          </li>
-          <li>
-            <label htmlFor="description">Description </label>
-            <input type="text" onChange={_handleDesInp} />
-          </li>
-          <li>
-            <label htmlFor="userId">UserID </label>
-            <input
-              style={{ marginLeft: "33px" }}
-              type="text"
-              onChange={_handleIDInp}
-            />
-          </li>
-          <br />
-        
-          <li>
-            <button onClick={_handlePost} type="submit">Submit</button>
-            {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
-          </li>
-        </ul>
-       
-      </div>
-      
-      <br />
-      <div className="singleData-flex">
+      <div className="noteBookArea-style">
+        <div className="operationNavbar-style">
+          <p onClick={_createNotebookBar}>Create Notebook</p>
+          <p onClick={_searchNotebookBar}>Search Notebook</p>
+          <p onClick={_showNotebookBar}>Show Notebook</p>
+        </div>
+        <div className="showArea-style">
+        {creatBar ? (
+          <div>
+            <ul>
+              <h3>Add Data</h3>
+              <li>
+                <label htmlFor="title">Title </label>
+                <input type="text" onChange={_handleTitleInp} />
+              </li>
+              <li>
+                <label htmlFor="description">Description </label>
+                <input type="text" onChange={_handleDesInp} />
+              </li>
+              <li>
+                <label htmlFor="userId">UserID </label>
+                <input type="text" onChange={_handleIDInp} />
+              </li>
+              <br />
+
+              <li>
+                <button onClick={_handlePost} type="submit">
+                  Submit
+                </button>
+                {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
+              </li>
+            </ul>
+          </div>
+        ) : null}
+
+        {searchBar ? (
+          <div>
+            <div>
+              <ul>
+                <h3>Search Data</h3>
+                <li>
+                  <label htmlFor="search word">
+                    Enter the title for search
+                  </label>
+                  <input type="text" onChange={_handleDeleteTitleSearchInp} />
+                </li>
+                <br />
+                <li>
+                  <button onClick={_handleSingleDataOutBtn}>
+                    Get single data
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              {singleData.map((item: any, index: any) => (
+                <div key={index}>
+                  <h3>Title : {item.title}</h3>
+                  <p>Description : {item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div>
-          <ul className="unOrder-style">
-            <h3>Search Data</h3>
+          <ul>
+            <h3>Delete Single Data</h3>
             <li>
-              <label htmlFor="search word">Enter the title for search</label>
-              <input
-                style={{ marginLeft: "20px" }}
-                type="text"
-                onChange={_handleDeleteTitleSearchInp}
-              />
+              <label htmlFor="delete word">Enter the title for delete</label>
+              <input type="text" onChange={_handleDeleteInp} />
             </li>
             <br />
             <li>
-              <button onClick={_handleSingleDataOutBtn}>Get single data</button>
+              <button onClick={_handleDeleteSingleDataBtn}>
+                Delete Single Data
+              </button>
             </li>
           </ul>
         </div>
-
-        <div className="singleData-box">
-          {singleData.map((item: any, index: any) => (
-            <div style={{ padding: "0 15px" }} key={index}>
-              <h3>Title : {item.title}</h3>
-              <p style={{ paddingLeft: "20px" }}>
-                Description : {item.description}
-              </p>
+        <div>
+          <ul>
+            <h3>Delete All Data</h3>
+            <li>
+              <button onClick={_handleDeleteAllDataBtn}>Delete All Data</button>
+            </li>
+            <br />
+          </ul>
+        </div>
+        {showBar ? (
+          <div>
+            <div>
+              <h3>--Display Area--</h3>
+              <button onClick={_handleAllDataOutBtn}>Get All Data</button>
             </div>
-          ))}
-        </div>
-      </div>
-      <div>
-        <ul className="unOrder-style">
-          <h3>Delete Single Data</h3>
-          <li>
-            <label htmlFor="delete word">Enter the title for delete</label>
-            <input
-              style={{ marginLeft: "22px" }}
-              type="text"
-              onChange={_handleDeleteInp}
-            />
-          </li>
-          <br />
-          <li>
-            <button onClick={_handleDeleteSingleDataBtn}>
-              Delete Single Data
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul className="unOrder-style">
-          <h3>Delete All Data</h3>
-          <li>
-            <button onClick={_handleDeleteAllDataBtn}>Delete All Data</button>
-          </li>
-          <br />
-        </ul>
-      </div>
-      <div>
-        <div style={{ textAlign: "center" }}>
-          <h3>--Display Area--</h3>
-          <button onClick={_handleAllDataOutBtn}>Get All Data</button>
-        </div>
 
-        <div className="posts-box">
-          {posts.map((item: any, index: any) => (
-            <div key={index}>
-              <h3>Title : {item.title}</h3>
-              <p style={{ paddingLeft: "30px" }}>
-                Description : {item.description}
-              </p>
+            <div>
+              {posts.map((item: any, index: any) => (
+                <div key={index}>
+                  <h3>Title : {item.title}</h3>
+                  <p>Description : {item.description}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        ) : null}
         </div>
       </div>
-
       {/* {handleData(posts)} */}
     </div>
   );
-}
 
+  }
 export default Notebook;

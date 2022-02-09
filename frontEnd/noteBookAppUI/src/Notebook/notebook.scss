@@ -1,0 +1,24 @@
+@import "../ScssColors/_bgColorCollections.scss";
+/* @import url(https://fonts.googleapis.com/css?family=Pacifico); */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .domLinkBar-style {
+        display: flex;
+    }
+    .noteBookArea-style {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .operationNavbar-style {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .showArea-style {
+            display: flex;
+        }
+    }
+}

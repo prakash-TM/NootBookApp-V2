@@ -3,7 +3,7 @@ import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
 import DeleteSingleReq from "../requests/deleteSingle";
-
+import LinkIndex from "../DomLinks/LinkIndex"
 function User() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,16 +20,18 @@ function User() {
   };
 
   return (
+
     <>
-      <div style={{ backgroundColor: "aqua" }}>
-        <div style={{ textAlign: "center" }}>
+    <LinkIndex />
+      <div >
+        <div >
           <h3>--Display Area--</h3>
           <button onClick={_handleAllDataOutBtn}>Get All Out</button>
         </div>
 
-        <div className="posts-box">
+        <div >
           {posts.map((item: any, index: any) => (
-            <div style={{ listStyleType: "none" }} key={index}>
+            <div key={index}>
               <li>User Name : {item.userName}</li>
               <li>Name : {item.name}</li>
               <li>Email : {item.email}</li>
