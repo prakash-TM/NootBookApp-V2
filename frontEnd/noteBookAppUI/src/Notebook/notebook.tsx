@@ -96,7 +96,7 @@ function Notebook() {
         <h2>Notebook App</h2>
       </div>
       <div>
-        <form onClick={_handlePost} >
+        
         <ul className="unOrder-style">
           <h3>Add Data</h3>
           <li>
@@ -122,11 +122,11 @@ function Notebook() {
           <br />
         
           <li>
-            <button type="submit">Submit</button>
+            <button onClick={_handlePost} type="submit">Submit</button>
             {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
           </li>
         </ul>
-        </form>
+       
       </div>
       
       <br />
