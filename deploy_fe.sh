@@ -13,7 +13,7 @@ npm run build
 echo "build completed"
 
 echo "pm2 started"
-pm2 start index.js -f
+pm2 start build/index.js -f
 echo "pm2 running"
 
 echo "pm2 saving"
