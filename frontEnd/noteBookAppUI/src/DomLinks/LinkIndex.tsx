@@ -3,17 +3,21 @@ import "./LinkIndex.css";
 const LinkIndex = () => {
   return (
     <div>
-       <div className="link-container">
-        <Link  className="link-style" to="/users">Users</Link>
+      <div className="link-container">
+        <Link className="link-style" to="/">
+          User
+        </Link>
       </div>
       <div className="link-container">
-        <Link  className="link-style" to="/notes">Notes</Link>
+        <Link className="link-style" to="/notes">
+          Notes
+        </Link>
       </div>
       <div className="link-container">
-        <Link className="link-style" to="/">NoteBook</Link>
+        <Link className="link-style" to="/notebook">
+          Notebook
+        </Link>
       </div>
-     
-     
     </div>
   );
 };

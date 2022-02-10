@@ -2,7 +2,7 @@
 import Notebook from "./Notebook/notebook";
 import Notes from "./Notes/notes";
 import User from "./Users/users";
-import LinkIndex from "./DomLinks/LinkIndex";
+// import LinkIndex from "./DomLinks/LinkIndex";
 
 const LaunchPage = () => {
   return (
@@ -12,9 +12,9 @@ const LaunchPage = () => {
         <BrowserRouter>
           <Routes>
             {/* <Route path="/" element={<LinkIndex />}/> */}
-            <Route path="/" element={<Notebook />} />
+            <Route path="/" element={<User />} />
             <Route path="/notes" element={<Notes />} />
-            <Route path="/users" element={<User />} />
+            <Route path="/notebook" element={<Notebook />} />
           </Routes>
         </BrowserRouter>
       </div>

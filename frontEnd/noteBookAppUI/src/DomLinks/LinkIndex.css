@@ -17,4 +17,8 @@
 .link-style:hover {
   background-color: orange;
 }
+
+.link-style:focus {
+  background-color: orange;
+}
 /*# sourceMappingURL=LinkIndex.css.map */
