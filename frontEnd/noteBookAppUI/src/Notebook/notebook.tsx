@@ -28,7 +28,7 @@ function Notebook() {
     setID(e.target.value);
   };
 
-  const _handleDeleteTitleSearchInp = (e: any) => {
+  const _handleTitleSearchInp = (e: any) => {
     setSearchWord(e.target.value);
   };
   const _handleDeleteInp = (e: any) => {
@@ -171,26 +171,25 @@ function Notebook() {
           ) : null}
 
           {searchBar ? (
-            <div>
-              <div>
-                <ul>
-                  <h3>Search Data</h3>
+            <div className="search-main-container">
+              <div className="search-area">
+                <ul >
                   <li>
                     <label htmlFor="search word">
-                      Enter the title for search
+                      Title
                     </label>
-                    <input type="text" onChange={_handleDeleteTitleSearchInp} />
+                    <input placeholder="Enter the title for search..." type="text" onChange={_handleTitleSearchInp} />
                   </li>
                   <br />
                   <li>
                     <button onClick={_handleSingleDataOutBtn}>
-                      Get single data
+                      Submit
                     </button>
                   </li>
                 </ul>
               </div>
 
-              <div>
+              <div className="search-show">
                 {singleData.map((item: any, index: any) => (
                   <div key={index}>
                     <h3>Title : {item.title}</h3>
@@ -202,14 +201,13 @@ function Notebook() {
           ) : null}
 
           {deleteSingleBar ? (
-            <div>
+            <div className="delete-single-main-container">
               <ul>
-                <h3>Delete Single Data</h3>
                 <li>
                   <label htmlFor="delete word">
-                    Enter the title for delete
+                    Title
                   </label>
-                  <input type="text" onChange={_handleDeleteInp} />
+                  <input placeholder="Enter the title for delete..." type="text" onChange={_handleDeleteInp} />
                 </li>
                 <br />
                 <li>
@@ -221,9 +219,8 @@ function Notebook() {
             </div>
           ) : null}
           {deleteAlleBar ? (
-            <div>
+            <div  className="delete-all-main-container">
               <ul>
-                <h3>Delete All Data</h3>
                 <li>
                   <button onClick={_handleDeleteAllDataBtn}>
                     Delete All Data
@@ -235,17 +232,12 @@ function Notebook() {
           ) : null}
 
           {showBar ? (
-            <div>
-              <div>
-                <h3>--Display Area--</h3>
-                <button onClick={_handleAllDataOutBtn}>Get All Data</button>
-              </div>
-
-              <div>
+            <div className="show-container">
+                <div className="wrap-show">
                 {posts.map((item: any, index: any) => (
-                  <div key={index}>
-                    <h3>Title : {item.title}</h3>
-                    <p>Description : {item.description}</p>
+                  <div className="separate-display" key={index}>
+                    <h4>Title :<span> {item.title}</span></h4>
+                    <h4>Description : <span>{item.description}</span></h4>
                   </div>
                 ))}
               </div>
