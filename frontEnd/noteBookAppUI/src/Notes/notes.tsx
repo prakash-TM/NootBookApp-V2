@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import "./notes.css";
 import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
@@ -14,9 +15,6 @@ function Notes() {
   const[aName,setAname]=useState("")
   const[email,setEmail]=useState("")
   const[tName,setTname]=useState("")
-  
-
-
   const [searchWord, setSearchWord] = useState("");
   const [deleteWord, setDeleteWord] = useState([]);
   const [deleteRes, setDeleteRes] = useState([]);
@@ -38,9 +36,6 @@ function Notes() {
     setTname(e.target.value);
   };
 
-
-
-
   const _handleTitleSearchInp = (e: any) => {
     setSearchWord(e.target.value);
   };
@@ -60,7 +55,7 @@ const _handlePost = async (e: any) => {
   const data = {
     title: title,
     authorId: aID,
-    authoeName:aName,
+    authorName:aName,
     email:email,
     // tags:[{tName}],
   };
@@ -79,7 +74,9 @@ const _handlePost = async (e: any) => {
 //get single
 const _handleSingleDataOutBtn = async () => {
   const getSingleApi = "getSingleNotes";
+  console.log(searchWord)
   const getSingle = await GetSingleReq(searchWord, getSingleApi);
+  console.log({getSingle})
   setSingleData(getSingle.data);
 };
 
@@ -217,7 +214,9 @@ const _handleDeleteAllDataBtn = async () => {
                 {singleData.map((item: any, index: any) => (
                   <div key={index}>
                     <h3>Title : {item.title}</h3>
-                    <p>Description : {item.description}</p>
+                    <p>authorId : {item.authorId}</p>
+                    <p>authoeName : {item.authorName}</p>
+                    <p>email : {item.email}</p>
                   </div>
                 ))}
               </div>
@@ -256,29 +255,19 @@ const _handleDeleteAllDataBtn = async () => {
           ) : null}
 
           {showBar ? (
-              <div >
+              <div className="show-container">
+                <div className="wrap-show">
               {posts.map((item: any, index: any) => (
-                <div  key={index}>
-                  <li>
-                    <h3>Title : {item.title}</h3>
-                  </li>
-                  <li>Author Id : {item.authorId}</li>
-                  <li>Author Name : {item.authorName}</li>
-                  <li>Email : {item.email}</li>
-                  <li>
-                    <ul>
-                      {item.tags.map((item: any, index: any) => {
-                        console.log({ item });
-                        return (
-                          <div key={index}>
-                            <li>Tag : {item.name}</li>
-                          </div>
-                        );
-                      })}
-                    </ul>
-                  </li>
+                <div className="separate-display" key={index}>
+                  <h3>Title : {item.title}</h3>
+                  <p>Author Id : {item.authorId}</p>
+                  <p>Author Name : {item.authorName}</p>
+                  <p>Email : {item.email}</p>
+                
                 </div>
+              
               ))}
+            </div>
             </div>
           ) : null}
         </div>

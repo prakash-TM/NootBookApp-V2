@@ -54,21 +54,27 @@ res.send({message :"Notes created successfully"})
 const getNotes=async(req:Request,res:Response)=>{
     const response=await notesModel.find({},{__v:0,createdAt:0,updatedAt:0,})
     if(!response){
-        res.send({message:"can't find user"})
+        // res.send({message:"can't find user"})
     }
     res.send(response)
 }
 
 const getSingleNotes=async(req:Request,res:Response)=>{
-    const response=await notesModel.findOne({title:"iron man"})
+    const{title}=req.query
+    const search={title}
+    console.log({search})
+    const response=await notesModel.findOne(search)
     if(!response){
-        res.send({message:"can't find user"})
+        res.send({search})
+        // res.send({message:"can't find user"})
     }
-    res.send({response})
+    res.send([response])
 }
 
 const removeSingleNotes=async(req:Request,res:Response)=>{
-    const response=await notesModel.findOneAndRemove({title:"iron man"})
+    const{title}=req.query
+    const search={title}
+    const response=await notesModel.findOneAndRemove(search)
     if(!response){
         res.send({message:"not able to delete record"})
     }
