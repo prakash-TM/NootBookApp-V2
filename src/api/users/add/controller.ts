@@ -75,8 +75,8 @@ const getUser=async(req:Request,res:Response)=>{
 }
 
 const getSingleUser=async(req:Request,res:Response)=>{
-    const{userName}=req.query
-    const search={userName}
+    const{title}=req.query
+    const search={title}
     const response=await userModel.findOne(search)
     if(!response){
         res.send({message:"can't find user"})
@@ -85,8 +85,8 @@ const getSingleUser=async(req:Request,res:Response)=>{
 }
 
 const removeSingleUser=async(req:Request,res:Response)=>{
-    const{userName}=req.query
-    const search={userName}
+    const{title}=req.query
+    const search={title}
     const response=await userModel.findOneAndRemove(search)
     if(!response){
         res.send({message:"not able to delete record"})
@@ -111,6 +111,7 @@ const updateSingleUser=async(req:Request,res:Response)=>{
     }
     res.send({response})
 }
+
 
 
 const updateAllUser=async(req:Request,res:Response)=>{
