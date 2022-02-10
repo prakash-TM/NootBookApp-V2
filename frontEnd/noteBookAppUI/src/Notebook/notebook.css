@@ -16,7 +16,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 10%;
-  background-color: skyblue;
+  background-color: white;
   border: 3px solid black;
   border-radius: 5px;
 }
@@ -40,14 +40,14 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   /* text-align: center; */
-  padding: 15px 0;
-  border-radius: 5px;
+  padding: 30px 0;
+  border-radius: 2px;
   background-color: orange;
   width: 100%;
 }
 
 .main-container .noteBookArea-style .operationNavbar-style p {
-  margin: 0 50px;
+  margin: 0 60px;
   border: 3px solid white;
   border-radius: 5px;
   padding: 5px 20px;
@@ -64,11 +64,52 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: turquoise;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 10%;
+  background-color: skyblue;
   border-radius: 5px;
   width: auto;
+  height: 100%;
+}
+
+.create-area ul {
+  list-style-type: none;
+}
+
+.create-area ul label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0px;
+}
+
+.create-area ul .description {
+  height: 10vh;
+}
+
+.create-area ul input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  height: 4vh;
+  padding-left: 10px;
+}
+
+.create-area ul button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.create-area ul button:hover {
+  background-color: gray;
 }
 /*# sourceMappingURL=notebook.css.map */

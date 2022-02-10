@@ -144,20 +144,19 @@ function Notebook() {
         </div>
         <div className="showArea-style">
           {creatBar ? (
-            <div>
+            <div className="create-area">
               <ul>
-                <h3>Add Data</h3>
                 <li>
                   <label htmlFor="title">Title </label>
-                  <input type="text" onChange={_handleTitleInp} />
+                  <input placeholder="Enter task title..." type="text" onChange={_handleTitleInp} />
                 </li>
                 <li>
                   <label htmlFor="description">Description </label>
-                  <input type="text" onChange={_handleDesInp} />
+                  <input placeholder="Enter task description..." className="description" type="text" onChange={_handleDesInp} />
                 </li>
                 <li>
                   <label htmlFor="userId">UserID </label>
-                  <input type="text" onChange={_handleIDInp} />
+                  <input placeholder="Enter user id..." type="text" onChange={_handleIDInp} />
                 </li>
                 <br />
 

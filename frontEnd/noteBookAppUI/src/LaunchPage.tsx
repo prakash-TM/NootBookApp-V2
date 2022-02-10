@@ -11,8 +11,8 @@ const LaunchPage = () => {
       <div>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LinkIndex />}/>
-            <Route path="/notebook" element={<Notebook />} />
+            {/* <Route path="/" element={<LinkIndex />}/> */}
+            <Route path="/" element={<Notebook />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/users" element={<User />} />
           </Routes>
