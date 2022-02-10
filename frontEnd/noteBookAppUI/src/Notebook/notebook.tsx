@@ -148,15 +148,28 @@ function Notebook() {
               <ul>
                 <li>
                   <label htmlFor="title">Title </label>
-                  <input placeholder="Enter task title..." type="text" onChange={_handleTitleInp} />
+                  <input
+                    placeholder="Enter task title..."
+                    type="text"
+                    onChange={_handleTitleInp}
+                  />
                 </li>
                 <li>
                   <label htmlFor="description">Description </label>
-                  <input placeholder="Enter task description..." className="description" type="text" onChange={_handleDesInp} />
+                  <input
+                    placeholder="Enter task description..."
+                    className="description"
+                    type="text"
+                    onChange={_handleDesInp}
+                  />
                 </li>
                 <li>
                   <label htmlFor="userId">UserID </label>
-                  <input placeholder="Enter user id..." type="text" onChange={_handleIDInp} />
+                  <input
+                    placeholder="Enter user id..."
+                    type="text"
+                    onChange={_handleIDInp}
+                  />
                 </li>
                 <br />
 
@@ -173,18 +186,18 @@ function Notebook() {
           {searchBar ? (
             <div className="search-main-container">
               <div className="search-area">
-                <ul >
+                <ul>
                   <li>
-                    <label htmlFor="search word">
-                      Title
-                    </label>
-                    <input placeholder="Enter the title for search..." type="text" onChange={_handleTitleSearchInp} />
+                    <label htmlFor="search word">Title</label>
+                    <input
+                      placeholder="Enter the title for search..."
+                      type="text"
+                      onChange={_handleTitleSearchInp}
+                    />
                   </li>
                   <br />
                   <li>
-                    <button onClick={_handleSingleDataOutBtn}>
-                      Submit
-                    </button>
+                    <button onClick={_handleSingleDataOutBtn}>Submit</button>
                   </li>
                 </ul>
               </div>
@@ -204,10 +217,12 @@ function Notebook() {
             <div className="delete-single-main-container">
               <ul>
                 <li>
-                  <label htmlFor="delete word">
-                    Title
-                  </label>
-                  <input placeholder="Enter the title for delete..." type="text" onChange={_handleDeleteInp} />
+                  <label htmlFor="delete word">Title</label>
+                  <input
+                    placeholder="Enter the title for delete..."
+                    type="text"
+                    onChange={_handleDeleteInp}
+                  />
                 </li>
                 <br />
                 <li>
@@ -219,7 +234,7 @@ function Notebook() {
             </div>
           ) : null}
           {deleteAlleBar ? (
-            <div  className="delete-all-main-container">
+            <div className="delete-all-main-container">
               <ul>
                 <li>
                   <button onClick={_handleDeleteAllDataBtn}>
@@ -233,11 +248,15 @@ function Notebook() {
 
           {showBar ? (
             <div className="show-container">
-                <div className="wrap-show">
+              <div className="wrap-show">
                 {posts.map((item: any, index: any) => (
                   <div className="separate-display" key={index}>
-                    <h4>Title :<span> {item.title}</span></h4>
-                    <h4>Description : <span>{item.description}</span></h4>
+                    <h4>
+                      Title :<span> {item.title}</span>
+                    </h4>
+                    <h4>
+                      Description : <span>{item.description}</span>
+                    </h4>
                   </div>
                 ))}
               </div>

@@ -98,8 +98,6 @@ const updateSingleNotes=async(req:Request,res:Response)=>{
     res.send({response})
 }
 
-
-
 const updateAllNotes=async(req:Request,res:Response)=>{
     const response=await notesModel.updateMany({},{title:"iron man"})
     if(!response){

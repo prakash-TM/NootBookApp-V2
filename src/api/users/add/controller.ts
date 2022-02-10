@@ -5,27 +5,27 @@ const addNewUser=async(req:Request,res:Response)=>{
         userName,
         name,
         email,
-        jobDetails:{
-            title,
-            designation,
-            organization,
-            isWorking
-        },
+        // jobDetails:{
+        //     title,
+        //     designation,
+        //     organization,
+        //     isWorking
+        // },
         contactNumber,
-        dob,
+        // dob,
         gender,
-        password,
-        isActive,
-        isVerified,
-        roles:[{
-            r_id,
-            r_isActive
-        }],
-        group:[{
-            g_id,
-            g_isActive
-        }],
-        lastActive
+        // password,
+        // isActive,
+        // isVerified,
+        // roles:[{
+        //     r_id,
+        //     r_isActive
+        // }],
+        // group:[{
+        //     g_id,
+        //     g_isActive
+        // }],
+        // lastActive
 
     }=req.body
 
@@ -35,27 +35,27 @@ const userPayload={
     userName,
         name,
         email,
-        jobDetails:{
-            title,
-            designation,
-            organization,
-            isWorking
-        },
+        // jobDetails:{
+        //     title,
+        //     designation,
+        //     organization,
+        //     isWorking
+        // },
         contactNumber,
-        dob,
+        // dob,
         gender,
-        password,
-        isActive,
-        isVerified,
-        roles:[{
-            r_id,
-            r_isActive
-        }],
-        group:[{
-            g_id,
-            g_isActive
-        }],
-        lastActive
+        // password,
+        // isActive,
+        // isVerified,
+        // roles:[{
+        //     r_id,
+        //     r_isActive
+        // }],
+        // group:[{
+        //     g_id,
+        //     g_isActive
+        // }],
+        // lastActive
 }
 
 const response=await userModel.create(userPayload)
@@ -75,15 +75,19 @@ const getUser=async(req:Request,res:Response)=>{
 }
 
 const getSingleUser=async(req:Request,res:Response)=>{
-    const response=await userModel.findOne({name:"prakash"})
+    const{userName}=req.query
+    const search={userName}
+    const response=await userModel.findOne(search)
     if(!response){
         res.send({message:"can't find user"})
     }
-    res.send({response})
+    res.send([response])
 }
 
 const removeSingleUser=async(req:Request,res:Response)=>{
-    const response=await userModel.findOneAndRemove({name:"prakash"})
+    const{userName}=req.query
+    const search={userName}
+    const response=await userModel.findOneAndRemove(search)
     if(!response){
         res.send({message:"not able to delete record"})
     }
@@ -107,7 +111,6 @@ const updateSingleUser=async(req:Request,res:Response)=>{
     }
     res.send({response})
 }
-
 
 
 const updateAllUser=async(req:Request,res:Response)=>{
