@@ -53,7 +53,7 @@ const getSingleNotebook=async(req:Request,res:Response)=>{
     if(!response){
         res.send({message:"can't find user"})
     }
-    res.send(response)
+    res.send([response])
 }
 
 //remove single

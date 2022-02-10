@@ -76,7 +76,6 @@ const _handleSingleDataOutBtn = async () => {
   const getSingleApi = "getSingleNotes";
   console.log(searchWord)
   const getSingle = await GetSingleReq(searchWord, getSingleApi);
-  console.log({getSingle})
   setSingleData(getSingle.data);
 };
 

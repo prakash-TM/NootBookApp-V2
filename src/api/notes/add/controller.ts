@@ -65,8 +65,8 @@ const getSingleNotes=async(req:Request,res:Response)=>{
     console.log({search})
     const response=await notesModel.findOne(search)
     if(!response){
-        res.send({search})
-        // res.send({message:"can't find user"})
+        // res.send({search})
+         res.send({message:"can't find user"})
     }
     res.send([response])
 }
