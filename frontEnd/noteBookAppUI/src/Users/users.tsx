@@ -46,7 +46,7 @@ function User() {
 
   //create
   const _handlePost = async (e: any) => {
-    const postApi = "notes";
+    const postApi = "user";
     const data = {
       userName: userName,
       name: uName,
