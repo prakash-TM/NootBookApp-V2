@@ -14,7 +14,7 @@ echo "build completed"
 cd ..
 cd ..
 echo "pm2 started"
-pm2 start frontEnd/noteBookAppUI/index.js -f
+pm2 start frontEnd/noteBookAppUI/frontend.js -f
 echo "pm2 running"
 
 echo "pm2 saving"
