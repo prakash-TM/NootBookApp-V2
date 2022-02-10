@@ -2,13 +2,13 @@
     "name": "notes-app-with-front-and-back",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "backend.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon build/index.js",
+        "start": "nodemon build/backend.js",
         "build": "tsc ",
-        "deploy": "tsc && nodemon build/index.js",
-        "testRun": "nodemon src/index.ts"
+        "deploy": "tsc && nodemon build/backend.js",
+        "testRun": "nodemon src/backend.ts"
     },
     "author": "Prakash TM",
     "license": "ISC",

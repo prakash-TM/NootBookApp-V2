@@ -1,24 +1,74 @@
 /* @import url(https://fonts.googleapis.com/css?family=Pacifico); */
 .main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.main-container .domLinkBar-style {
-  display: flex;
-}
-.main-container .noteBookArea-style {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.main-container .noteBookArea-style .operationNavbar-style {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.main-container .noteBookArea-style .showArea-style {
-  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100vh;
+  width: auto;
 }
 
+.main-container .domLinkBar-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 10%;
+  background-color: skyblue;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.main-container .noteBookArea-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.main-container .noteBookArea-style .operationNavbar-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* text-align: center; */
+  padding: 15px 0;
+  border-radius: 5px;
+  background-color: orange;
+  width: 100%;
+}
+
+.main-container .noteBookArea-style .operationNavbar-style p {
+  margin: 0 50px;
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 5px 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main-container .noteBookArea-style .operationNavbar-style p:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.main-container .noteBookArea-style .showArea-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: turquoise;
+  border-radius: 5px;
+  width: auto;
+}
 /*# sourceMappingURL=notebook.css.map */

@@ -87,27 +87,48 @@ function Notebook() {
     alert("records was deleted successfully & refresh the once");
   };
 
-  const [creatBar, setCreateBar] = useState(false);
+  const [creatBar, setCreateBar] = useState(true);
   const [searchBar, setSearchBar] = useState(false);
   const [showBar, setShowBar] = useState(false);
+  const [deleteSingleBar, setDeleteSingleBar] = useState(false);
+  const [deleteAlleBar, setDeleteAllBar] = useState(false);
 
   const _createNotebookBar = () => {
     setCreateBar(true);
     setSearchBar(false);
     setShowBar(false);
+    setDeleteSingleBar(false);
+    setDeleteAllBar(false);
   };
   const _searchNotebookBar = () => {
     setCreateBar(false);
     setSearchBar(true);
     setShowBar(false);
+    setDeleteSingleBar(false);
+    setDeleteAllBar(false);
   };
 
   const _showNotebookBar = () => {
     setCreateBar(false);
     setSearchBar(false);
     setShowBar(true);
+    setDeleteSingleBar(false);
+    setDeleteAllBar(false);
   };
-
+  const _deleteSingleNotebookBar = () => {
+    setCreateBar(false);
+    setSearchBar(false);
+    setShowBar(false);
+    setDeleteSingleBar(true);
+    setDeleteAllBar(false);
+  };
+  const _deleteAllNotebookBar = () => {
+    setCreateBar(false);
+    setSearchBar(false);
+    setShowBar(false);
+    setDeleteSingleBar(false);
+    setDeleteAllBar(true);
+  };
   return (
     <div className="main-container">
       <div className="domLinkBar-style">
@@ -115,116 +136,126 @@ function Notebook() {
       </div>
       <div className="noteBookArea-style">
         <div className="operationNavbar-style">
-          <p onClick={_createNotebookBar}>Create Notebook</p>
-          <p onClick={_searchNotebookBar}>Search Notebook</p>
-          <p onClick={_showNotebookBar}>Show Notebook</p>
+          <p onClick={_createNotebookBar}>Create </p>
+          <p onClick={_searchNotebookBar}>Search </p>
+          <p onClick={_showNotebookBar}>Show </p>
+          <p onClick={_deleteSingleNotebookBar}>Delete Single </p>
+          <p onClick={_deleteAllNotebookBar}>Delete All </p>
         </div>
         <div className="showArea-style">
-        {creatBar ? (
-          <div>
-            <ul>
-              <h3>Add Data</h3>
-              <li>
-                <label htmlFor="title">Title </label>
-                <input type="text" onChange={_handleTitleInp} />
-              </li>
-              <li>
-                <label htmlFor="description">Description </label>
-                <input type="text" onChange={_handleDesInp} />
-              </li>
-              <li>
-                <label htmlFor="userId">UserID </label>
-                <input type="text" onChange={_handleIDInp} />
-              </li>
-              <br />
-
-              <li>
-                <button onClick={_handlePost} type="submit">
-                  Submit
-                </button>
-                {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
-              </li>
-            </ul>
-          </div>
-        ) : null}
-
-        {searchBar ? (
-          <div>
+          {creatBar ? (
             <div>
               <ul>
-                <h3>Search Data</h3>
+                <h3>Add Data</h3>
                 <li>
-                  <label htmlFor="search word">
-                    Enter the title for search
+                  <label htmlFor="title">Title </label>
+                  <input type="text" onChange={_handleTitleInp} />
+                </li>
+                <li>
+                  <label htmlFor="description">Description </label>
+                  <input type="text" onChange={_handleDesInp} />
+                </li>
+                <li>
+                  <label htmlFor="userId">UserID </label>
+                  <input type="text" onChange={_handleIDInp} />
+                </li>
+                <br />
+
+                <li>
+                  <button onClick={_handlePost} type="submit">
+                    Submit
+                  </button>
+                  {/* <button onClick={_handleInpEmpty}>Inputs Empty</button> */}
+                </li>
+              </ul>
+            </div>
+          ) : null}
+
+          {searchBar ? (
+            <div>
+              <div>
+                <ul>
+                  <h3>Search Data</h3>
+                  <li>
+                    <label htmlFor="search word">
+                      Enter the title for search
+                    </label>
+                    <input type="text" onChange={_handleDeleteTitleSearchInp} />
+                  </li>
+                  <br />
+                  <li>
+                    <button onClick={_handleSingleDataOutBtn}>
+                      Get single data
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                {singleData.map((item: any, index: any) => (
+                  <div key={index}>
+                    <h3>Title : {item.title}</h3>
+                    <p>Description : {item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {deleteSingleBar ? (
+            <div>
+              <ul>
+                <h3>Delete Single Data</h3>
+                <li>
+                  <label htmlFor="delete word">
+                    Enter the title for delete
                   </label>
-                  <input type="text" onChange={_handleDeleteTitleSearchInp} />
+                  <input type="text" onChange={_handleDeleteInp} />
                 </li>
                 <br />
                 <li>
-                  <button onClick={_handleSingleDataOutBtn}>
-                    Get single data
+                  <button onClick={_handleDeleteSingleDataBtn}>
+                    Delete Single Data
                   </button>
                 </li>
               </ul>
             </div>
-
+          ) : null}
+          {deleteAlleBar ? (
             <div>
-              {singleData.map((item: any, index: any) => (
-                <div key={index}>
-                  <h3>Title : {item.title}</h3>
-                  <p>Description : {item.description}</p>
-                </div>
-              ))}
+              <ul>
+                <h3>Delete All Data</h3>
+                <li>
+                  <button onClick={_handleDeleteAllDataBtn}>
+                    Delete All Data
+                  </button>
+                </li>
+                <br />
+              </ul>
             </div>
-          </div>
-        ) : null}
+          ) : null}
 
-        <div>
-          <ul>
-            <h3>Delete Single Data</h3>
-            <li>
-              <label htmlFor="delete word">Enter the title for delete</label>
-              <input type="text" onChange={_handleDeleteInp} />
-            </li>
-            <br />
-            <li>
-              <button onClick={_handleDeleteSingleDataBtn}>
-                Delete Single Data
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <h3>Delete All Data</h3>
-            <li>
-              <button onClick={_handleDeleteAllDataBtn}>Delete All Data</button>
-            </li>
-            <br />
-          </ul>
-        </div>
-        {showBar ? (
-          <div>
+          {showBar ? (
             <div>
-              <h3>--Display Area--</h3>
-              <button onClick={_handleAllDataOutBtn}>Get All Data</button>
-            </div>
+              <div>
+                <h3>--Display Area--</h3>
+                <button onClick={_handleAllDataOutBtn}>Get All Data</button>
+              </div>
 
-            <div>
-              {posts.map((item: any, index: any) => (
-                <div key={index}>
-                  <h3>Title : {item.title}</h3>
-                  <p>Description : {item.description}</p>
-                </div>
-              ))}
+              <div>
+                {posts.map((item: any, index: any) => (
+                  <div key={index}>
+                    <h3>Title : {item.title}</h3>
+                    <p>Description : {item.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
         </div>
       </div>
       {/* {handleData(posts)} */}
     </div>
   );
-
-  }
+}
 export default Notebook;
