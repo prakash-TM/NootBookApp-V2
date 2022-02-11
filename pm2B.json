@@ -1,0 +1,6 @@
+{
+    "apps":{
+        "name":"backend",
+        "script":" build/backend.js -f"
+    }
+}
