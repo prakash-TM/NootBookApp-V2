@@ -47,7 +47,7 @@
 }
 
 .main-container .noteBookArea-style .operationNavbar-style p {
-  margin: 0 60px;
+  margin: 0 40px;
   border: 3px solid white;
   border-radius: 5px;
   padding: 5px 20px;
@@ -72,7 +72,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding-left: 10%;
-  background-color: skyblue;
+  background-color: #2ca1cf;
   border-radius: 5px;
   width: auto;
   height: 100%;

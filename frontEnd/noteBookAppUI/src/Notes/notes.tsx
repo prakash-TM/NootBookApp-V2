@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import "./notes.css";
+import "./notes.css";
 import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
@@ -139,7 +139,7 @@ function Notes() {
         <div className="domLinkBar-style">
           <LinkIndex />
         </div>
-        <div className="noteBookArea-style">
+        <div className="notesArea-style">
           <div className="operationNavbar-style">
             <p onClick={_createNotebookBar}>Create </p>
             <p onClick={_searchNotebookBar}>Search </p>

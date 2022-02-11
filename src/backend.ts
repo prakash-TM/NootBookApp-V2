@@ -10,7 +10,7 @@ import * as cors from "cors"
 
 // Creating db
 const initConnection = async() => {
-    await Mongoose.connect("mongodb://127.0.0.1:27017/Coherence");
+    await Mongoose.connect("mongodb://127.0.0.1/Coherence");
 };
 //127.0.0.1:27017
 initConnection();

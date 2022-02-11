@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./users.css";
 import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
@@ -198,7 +199,7 @@ function User() {
         <div className="domLinkBar-style">
           <LinkIndex />
         </div>
-        <div className="noteBookArea-style">
+        <div className="userArea-style">
           <div className="operationNavbar-style">
             <p onClick={_createNotebookBar}>Create </p>
             <p onClick={_searchNotebookBar}>Search </p>

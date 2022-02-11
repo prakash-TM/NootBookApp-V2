@@ -7,7 +7,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 100vh;
+  height: 110vh;
   width: auto;
 }
 
@@ -21,7 +21,7 @@
   border-radius: 5px;
 }
 
-.main-container .noteBookArea-style {
+.main-container .notesArea-style {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,7 +32,7 @@
   width: 100%;
 }
 
-.main-container .noteBookArea-style .operationNavbar-style {
+.main-container .notesArea-style .operationNavbar-style {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,12 +42,12 @@
   /* text-align: center; */
   padding: 30px 0;
   border-radius: 2px;
-  background-color: orange;
+  background-color: #1cb683;
   width: 100%;
 }
 
-.main-container .noteBookArea-style .operationNavbar-style p {
-  margin: 0 60px;
+.main-container .notesArea-style .operationNavbar-style p {
+  margin: 0 40px;
   border: 3px solid white;
   border-radius: 5px;
   padding: 5px 20px;
@@ -55,12 +55,13 @@
   transition: 0.3s;
 }
 
-.main-container .noteBookArea-style .operationNavbar-style p:hover {
+.main-container .notesArea-style .operationNavbar-style p:hover {
   background-color: white;
   cursor: pointer;
 }
 
-.main-container .noteBookArea-style .showArea-style {
+.main-container .notesArea-style .showArea-style {
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,7 +69,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding-left: 10%;
-  background-color: skyblue;
+  background-color: #2f3436;
   border-radius: 5px;
   width: auto;
   height: 100%;
@@ -291,6 +292,7 @@
 }
 
 .show-container .wrap-show .separate-display:hover {
+  color: black;
   background-color: white;
 }
 /*# sourceMappingURL=notes.css.map */

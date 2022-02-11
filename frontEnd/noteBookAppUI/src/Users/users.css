@@ -1,0 +1,302 @@
+/* @import url(https://fonts.googleapis.com/css?family=Pacifico); */
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 110vh;
+  width: auto;
+}
+
+.main-container .domLinkBar-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 10%;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.main-container .userArea-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.main-container .userArea-style .operationNavbar-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* text-align: center; */
+  padding: 30px 0;
+  border-radius: 2px;
+  background-color: #3ab8b1;
+  width: 100%;
+}
+
+.main-container .userArea-style .operationNavbar-style p {
+  margin: 0 40px;
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 5px 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main-container .userArea-style .operationNavbar-style p:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.main-container .userArea-style .operationNavbar-style p:focus {
+  background-color: white;
+}
+
+.main-container .userArea-style .showArea-style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 10%;
+  background-color: #303063;
+  border-radius: 5px;
+  width: auto;
+  height: 100%;
+}
+
+.create-area ul {
+  list-style-type: none;
+}
+
+.create-area ul label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0px;
+}
+
+.create-area ul .description {
+  height: 10vh;
+}
+
+.create-area ul input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  height: 4vh;
+  padding-left: 10px;
+}
+
+.create-area ul button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.create-area ul button:hover {
+  background-color: gray;
+}
+
+.search-main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.search-main-container .search-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-main-container .search-area ul {
+  list-style-type: none;
+}
+
+.search-main-container .search-area ul label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0px;
+}
+
+.search-main-container .search-area ul .description {
+  height: 10vh;
+}
+
+.search-main-container .search-area ul input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  height: 4vh;
+  padding-left: 10px;
+}
+
+.search-main-container .search-area ul button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.search-main-container .search-area ul button:hover {
+  background-color: gray;
+}
+
+.search-main-container .search-show {
+  /* display: flex; */
+  margin: 40px 0 0 300px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  height: 35vh;
+  width: 300px;
+  /* width: 100%; */
+  padding-left: 20px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.search-main-container .search-show:hover {
+  background-color: white;
+}
+
+.delete-single-main-container ul {
+  list-style-type: none;
+}
+
+.delete-single-main-container ul label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0px;
+}
+
+.delete-single-main-container ul .description {
+  height: 10vh;
+}
+
+.delete-single-main-container ul input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  height: 4vh;
+  padding-left: 10px;
+}
+
+.delete-single-main-container ul button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.delete-single-main-container ul button:hover {
+  background-color: gray;
+}
+
+.delete-all-main-container {
+  margin-top: 30px;
+}
+
+.delete-all-main-container ul {
+  list-style-type: none;
+}
+
+.delete-all-main-container ul label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0px;
+}
+
+.delete-all-main-container ul .description {
+  height: 10vh;
+}
+
+.delete-all-main-container ul input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  height: 4vh;
+  padding-left: 10px;
+}
+
+.delete-all-main-container ul button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.delete-all-main-container ul button:hover {
+  background-color: gray;
+}
+
+.show-container {
+  margin: 30px 0 0 40px;
+}
+
+.show-container .wrap-show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.show-container .wrap-show .separate-display {
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 7px 4px;
+  padding: 0 7px;
+}
+
+.show-container .wrap-show .separate-display:hover {
+  color: black;
+  background-color: white;
+}
+/*# sourceMappingURL=users.css.map */

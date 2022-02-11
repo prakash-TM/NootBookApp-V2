@@ -53,11 +53,10 @@
         border:3px solid black;
         border-radius:5px;
     }
-    .notesArea-style {
+    .userArea-style {
         display: flex;
         flex-direction: column;
-        width: 100%;    
-        
+        width: 100%;
        
         
         .operationNavbar-style {
@@ -66,7 +65,7 @@
             /* text-align: center; */
             padding:30px 0;
             border-radius:2px;
-            background-color:rgb(28, 182, 131);
+            background-color: rgb(58, 184, 177);
             width:100%;
 
             
@@ -82,13 +81,16 @@
                 background-color: white;
                 cursor: pointer;
             }
+            p:focus{
+                background-color: white;
+            }
         }
         .showArea-style {
-            color: white;
             display: flex;
+            color: white;
             justify-content:flex-start;
             padding-left: 10%;
-            background-color: rgb(47, 52, 54);
+            background-color: rgb(48, 48, 99);
             border-radius: 5px;
             width: auto;
             height: 100%;
@@ -115,7 +117,7 @@ flex-direction: row;
     margin: 40px 0 0 300px;
     border: 2px solid gray;
     border-radius: 5px;
-    height: 30vh;
+    height: 35vh;
     width: 300px;
     /* width: 100%; */
     padding-left: 20px;
