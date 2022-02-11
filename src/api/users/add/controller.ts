@@ -67,6 +67,7 @@ res.send({message:"User created successfully"})
 
 
 const getUser=async(req:Request,res:Response)=>{
+   
     const response=await userModel.find({},{_id:0,createdAt:0,updatedAt:0,__v:0})
     if(!response){
         res.send({message:"can't find user"})
@@ -104,14 +105,17 @@ const removeUser=async(req:Request,res:Response)=>{
 
 
 const updateSingleUser=async(req:Request,res:Response)=>{
-    const myQuery={name:"prakash"}
-    const response=await userModel.updateOne(myQuery,{name:"Tony stark"})
+    // const{title}=req.query
+    const update=req.body
+    const search={userName:"jechs"}
+    // const replace={update}
+//    console.log({search})
+    const response=await userModel.updateOne(search,{$set:update})
     if(!response){
         res.send({message:"not able to update"})
     }
-    res.send({response})
+    res.send("updated successfully")
 }
-
 
 
 const updateAllUser=async(req:Request,res:Response)=>{

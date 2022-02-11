@@ -10,7 +10,7 @@ import * as cors from "cors"
 
 // Creating db
 const initConnection = async() => {
-    await Mongoose.connect("mongodb://localhost/Coherence");
+    await Mongoose.connect("mongodb://127.0.0.1:27017/Coherence");
 };
 //127.0.0.1:27017
 initConnection();
@@ -24,5 +24,5 @@ app.use("",notesRouter)
 app.use("",userRouter)
 
 app.listen(port, () => {
-    console.log("server is running at localhost:", port);
+    console.log("server is running at port:", port);
 });
