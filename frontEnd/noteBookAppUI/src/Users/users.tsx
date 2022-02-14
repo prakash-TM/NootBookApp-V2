@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import "./users.css";
 import PostReq from "../requests/post";
 import GetAllReq from "../requests/getAll";
 import GetSingleReq from "../requests/getSingle";
 import DeleteSingleReq from "../requests/deleteSingle";
 import DeleteAllReq from "../requests/deleteAll";
+// import UpdateReq from "../requests/update";
 import LinkIndex from "../DomLinks/LinkIndex";
+
 function User() {
   const [posts, setPosts] = useState([]);
   const [singleData, setSingleData] = useState([]);
@@ -14,8 +17,17 @@ function User() {
   const [contactNumber, setContactNumber] = useState("");
   const [gender, setGender] = useState("");
   const [searchWord, setSearchWord] = useState("");
+  const [updateWord, setUpdateWord] = useState("");
   const [deleteWord, setDeleteWord] = useState([]);
   const [deleteRes, setDeleteRes] = useState([]);
+
+  //update
+
+  const [updateUserName, setUpdateUserName] = useState("");
+  const [updateUName, setUpdateUname] = useState("");
+  const [updateEmail, setUpdateEmail] = useState("");
+  const [updateContactNumber, setUpdateContactNumber] = useState("");
+  const [updateGender, setUpdateGender] = useState("");
 
   const _handleUserName = (e: any) => {
     setUserName(e.target.value);
@@ -39,6 +51,27 @@ function User() {
   const _handleDeleteInp = (e: any) => {
     setDeleteWord(e.target.value);
   };
+  const _handleNameUpdateInp = (e: any) => {
+    setUpdateWord(e.target.value);
+  };
+
+  //update
+
+  const _handleUpdateUserName = (e: any) => {
+    setUpdateUserName(e.target.value);
+  };
+  const _handleUpdateUname = (e: any) => {
+    setUpdateUname(e.target.value);
+  };
+  const _handleUpdateEmail = (e: any) => {
+    setUpdateEmail(e.target.value);
+  };
+  const _handleUpdateContactNumber = (e: any) => {
+    setUpdateContactNumber(e.target.value);
+  };
+  const _handleUpdateGender = (e: any) => {
+    setUpdateGender(e.target.value);
+  };
 
   useEffect(() => {
     _handleAllDataOutBtn();
@@ -59,7 +92,6 @@ function User() {
 
   //show notes
   const _handleAllDataOutBtn = async () => {
-    console.log("inside handle out");
     const getAllApi = "getUser";
     var getAll = await GetAllReq(getAllApi);
     setPosts(getAll.data);
@@ -68,7 +100,7 @@ function User() {
   //get single
   const _handleSingleDataOutBtn = async () => {
     const getSingleApi = "getSingleUser";
-    console.log(searchWord);
+
     const getSingle = await GetSingleReq(searchWord, getSingleApi);
     setSingleData(getSingle.data);
   };
@@ -88,9 +120,24 @@ function User() {
     alert("records was deleted successfully & refresh the once");
   };
 
+  //update
+  // const _handleUpdateBtn = async () => {
+   
+  //   const updateApi = "updateSingleUser";
+  //   const UpdateData = {
+  //     userName: updateUserName,
+  //     name: updateUName,
+  //     email: updateEmail,
+  //     contactNumber: updateContactNumber,
+  //     gender: updateGender,
+  //   };
+  //   const update = await UpdateReq(updateWord, updateApi, UpdateData);
+  // };
+
   const [creatBar, setCreateBar] = useState(true);
   const [searchBar, setSearchBar] = useState(false);
   const [showBar, setShowBar] = useState(false);
+  const [updateBar, showUpdateBar] = useState(false);
   const [deleteSingleBar, setDeleteSingleBar] = useState(false);
   const [deleteAlleBar, setDeleteAllBar] = useState(false);
 
@@ -98,6 +145,7 @@ function User() {
     setCreateBar(true);
     setSearchBar(false);
     setShowBar(false);
+    showUpdateBar(false);
     setDeleteSingleBar(false);
     setDeleteAllBar(false);
   };
@@ -105,6 +153,7 @@ function User() {
     setCreateBar(false);
     setSearchBar(true);
     setShowBar(false);
+    showUpdateBar(false);
     setDeleteSingleBar(false);
     setDeleteAllBar(false);
   };
@@ -113,6 +162,16 @@ function User() {
     setCreateBar(false);
     setSearchBar(false);
     setShowBar(true);
+    showUpdateBar(false);
+    setDeleteSingleBar(false);
+    setDeleteAllBar(false);
+  };
+
+  const _updateBar = () => {
+    setCreateBar(false);
+    setSearchBar(false);
+    setShowBar(false);
+    showUpdateBar(true);
     setDeleteSingleBar(false);
     setDeleteAllBar(false);
   };
@@ -120,6 +179,7 @@ function User() {
     setCreateBar(false);
     setSearchBar(false);
     setShowBar(false);
+    showUpdateBar(false);
     setDeleteSingleBar(true);
     setDeleteAllBar(false);
   };
@@ -127,6 +187,7 @@ function User() {
     setCreateBar(false);
     setSearchBar(false);
     setShowBar(false);
+    showUpdateBar(false);
     setDeleteSingleBar(false);
     setDeleteAllBar(true);
   };
@@ -137,11 +198,12 @@ function User() {
         <div className="domLinkBar-style">
           <LinkIndex />
         </div>
-        <div className="noteBookArea-style">
+        <div className="userArea-style">
           <div className="operationNavbar-style">
             <p onClick={_createNotebookBar}>Create </p>
             <p onClick={_searchNotebookBar}>Search </p>
             <p onClick={_showNotebookBar}>Show </p>
+            <p onClick={_updateBar}>Update</p>
             <p onClick={_deleteSingleNotebookBar}>Delete Single </p>
             <p onClick={_deleteAllNotebookBar}>Delete All </p>
           </div>
@@ -282,9 +344,82 @@ function User() {
                 </div>
               </div>
             ) : null}
+
+            {updateBar ? (
+              <div className="search-area">
+                <div className="create-area" >
+                  <ul>
+                    <li>
+                      <label htmlFor="search word">User Name for Search</label>
+                      <input
+                        placeholder="Enter the user name for update..."
+                        type="text"
+                        onChange={_handleNameUpdateInp}
+                      />
+                    </li>
+                    <br />
+                  </ul>
+                  <p>For replacement data</p>
+                  {/* <button onClick={_handleUpdateBtn}>Update</button> */}
+                  <div>
+                    <div className="create-area">
+                    <ul>
+                    <li>
+                      <label htmlFor="title">User Name </label>
+                      <input
+                        placeholder="Enter user name..."
+                        type="text"
+                        onChange={_handleUpdateUserName}
+                      />
+                    </li>
+                    <li>
+                      <label htmlFor="description">Author Name </label>
+                      <input
+                        placeholder="Enter author name..."
+                        className="description"
+                        type="text"
+                        onChange={_handleUpdateUname}
+                      />
+                    </li>
+                    <li>
+                      <label htmlFor="userId">Email </label>
+                      <input
+                        placeholder="Enter email address..."
+                        type="text"
+                        onChange={_handleUpdateEmail}
+                      />
+                    </li>
+                    <li>
+                      <label htmlFor="userId">Contact Number </label>
+                      <input
+                        placeholder="Enter contact number..."
+                        type="text"
+                        onChange={_handleUpdateContactNumber}
+                      />
+                    </li>
+                    <li>
+                      <label htmlFor="userId">Gender </label>
+                      <input
+                        placeholder="Enter gender..."
+                        type="text"
+                        onChange={_handleUpdateGender}
+                      />
+                    </li>
+                    <br />
+                    {/* <li>
+                      <button onClick={_handleUpdateBtn}>Update</button>
+                    </li> */}
+                    <br />
+                  </ul>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
-        {/* {handleData(posts)} */}
+       
       </div>
     </>
   );
