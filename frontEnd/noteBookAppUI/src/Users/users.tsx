@@ -347,8 +347,8 @@ function User() {
             ) : null}
 
             {updateBar ? (
-              <div>
-                <div className="search-area">
+              <div className="search-area">
+                <div className="create-area" >
                   <ul>
                     <li>
                       <label htmlFor="search word">User Name for Search</label>
@@ -360,9 +360,11 @@ function User() {
                     </li>
                     <br />
                   </ul>
-                  <p>for replacement data</p>
+                  <p>For replacement data</p>
                   {/* <button onClick={_handleUpdateBtn}>Update</button> */}
-                  <ul>
+                  <div>
+                    <div className="create-area">
+                    <ul>
                     <li>
                       <label htmlFor="title">User Name </label>
                       <input
@@ -404,11 +406,15 @@ function User() {
                         onChange={_handleUpdateGender}
                       />
                     </li>
+                    <br />
                     <li>
                       <button onClick={_handleUpdateBtn}>Update</button>
                     </li>
                     <br />
                   </ul>
+                    </div>
+                  </div>
+                 
                 </div>
               </div>
             ) : null}
